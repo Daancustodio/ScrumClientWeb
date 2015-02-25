@@ -1,0 +1,77 @@
+<div class="slide-left panel panel-primary" ng-hide="esconder">
+    <div class="panel-heading">
+        <i class="fa fa-plus fa-fw"></i> Tarefa
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+        <form class="form">
+            <div class="col-xs-12 col-sm-2 col-md-2">
+                <label class="text-center" for="id"><h5>ID</h5></label>
+                <input type="number" class="form-control input-sm" name="id" disabled>
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <label class="text-center" for="idTipotarefa"><h5>Tipo de Tarefa</h5></label>
+                <select class="form-control input-sm" name="idTipotarefa" placeholder="Tipo de Tarefa">
+                    <option value="ID">Descrição Tipo de Tarefa</option>
+                    <option value="ID">Descrição Tipo de Tarefa</option>
+                    <option value="ID">Descrição Tipo de Tarefa</option>
+                </Select>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <label class="text-center" for="descricao"><h5>Descrição</h5></label>
+                <input type="text" class="form-control input-sm" name="descricao" placeholder="Insira uma descrição">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2">
+                <label class="text-center" for="horasEstimativa"><h5>Estimativa</h5></label>
+                <input type="time" class="form-control input-sm" name="horasEstimativa" placeholder="Estimativa">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-2">
+                <label class="text-center" for="horasEfetiva"><h5>Efetiva</h5></label>
+                <input type="time" class="form-control input-sm" name="horasEfetiva" placeholder="Horas Efetivas" disabled>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4">
+                <label class="text-center" for="dataInicio"><h5>Início</h5></label>
+                <input type="date" class="form-control input-sm" name="dataInicio" placeholder="Início">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-4">
+                <label class="text-center" for="dataConclusao"><h5>Termino</h5></label>
+                <input type="date" class="form-control input-sm" name="dataConclusao" placeholder="Termino" disabled>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4">
+                <label class="text-center" for="idEstoria"><h5>Estória</h5></label>
+                <select class="form-control input-sm" name="idEstoria" placeholder="Estória">
+                    <option value="ID">Descrição Estória</option>
+                    <option value="ID">Descrição Estória</option>
+                    <option value="ID">Descrição Estória</option>
+                </Select>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <label class="text-center" for="idUsuarioPapelTime"><h5>Responsável</h5></label>
+                <select class="form-control input-sm" name="idUsuarioPapelTime" placeholder="Usuario Responsável">
+                    <option value="1">Daniel Custódio</option>
+                    <option value="2">Fabio Campos</option>
+                    <option value="3">Carlos Lúcio</option>
+                    <option value="4">André abel</option>
+                    <option value="5">Raphael Freitas</option>
+                </Select>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <label class="text-center" for="status"><h5>Estatus</h5></label>
+                <select class="form-control input-sm" name="status" placeholder="Status">
+                    <option value="1">Nova</option>
+                    <option value="2">Em Execução</option>
+                    <option value="3">Finalizada</option>
+                    <option value="4">Cancelada</option>
+                </Select>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <label class="text-center" for="obs"><h3>Observações</h3></label>
+                <textarea  class="form-control input-sm" name="obs"></textarea>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12"><br>
+                <button type="submit" class="btn btn-default">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>

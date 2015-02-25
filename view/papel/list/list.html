@@ -1,0 +1,20 @@
+<div class="col-xs-12 col-sm-12 col-md-6">
+    <div class="well well-sm">
+        <h3 class="text-center">Ultimos Cadastros</h3>
+        <ul class="list-group">
+            <li  ng-repeat="row in rows" class="list-group-item {{row.id}}">
+                <a  href="" class="{{row.id}}" alt="Clique para editar" ng-click="loadRow('/papel',row.id)">
+                {{row.descricao}}
+                </a>
+                <div class="btn-group pull-right">
+                    <button ng-init="btnEdit = 'btn-default'" type="button" ng-mouseover="btnEdit = 'btn-warning'" ng-mouseleave="btnEdit = 'btn-default'"  ng-click="loadRow('/papel',row.id)" class=" {{row.id}} btn btn-xs {{btnEdit}}">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                    </button>
+                    <button ng-init="btnDelete = 'btn-default'" type="button" ng-mouseover="btnDelete = 'btn-danger'" ng-mouseleave="btnDelete = 'btn-default'" ng-click="del('/papel',row.id)" class="btn btn-xs {{btnDelete}}">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
