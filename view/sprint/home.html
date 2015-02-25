@@ -1,0 +1,15 @@
+<div ng-include src="'view/projeto/modais/modalProjeto.html'"></div> 
+<div ng-controller="restController">
+    <div id="row1" class="row">
+        <div class="col-xs-12">
+            <h1 class="page-header">Sprint </h1>
+            <button class="btn btn-primary pull-left" style="margin-bottom: 5px" ng-click="new()">Nova</button>
+            <button class="btn btn-warning pull-left" style="margin-bottom: 5px; margin-left: 5px;" ng-hide="esconder" ng-click="esconder=true">Cancelar</button>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+	   <div ng-include src="'view/sprint/forms/Sprint.html'"></div>
+       <div ng-include src="'view/sprint/list/list.html'" onload="loadAll('/sprint')" class="slide-top"></div>
+       </div>   
+</div>

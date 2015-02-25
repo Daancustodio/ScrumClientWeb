@@ -1,0 +1,79 @@
+<div class="slide-left col-xs-12" ng-hide="esconder">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <i class="fa fa-plus fa-fw"></i> Sprint {{row.titulo}}
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <form class="form">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <label class="text-center" for="titulo"><h5>Título</h5></label>
+                    <input type="text" class="form-control input-sm" ng-model="row.titulo" placeholder="Título">
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3">
+                    <label class="text-center" for="diasUteis"><h5>Dias de Execução</h5></label>
+                    <input type="number" class="form-control input-sm" ng-model="row.diasUteis" placeholder="Dias de Execução">
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3">
+                    <label class="text-center" for="diasCerimonias"><h5>Dias de Cerimônias</h5></label>
+                    <input type="number" class="form-control input-sm" ng-model="row.diasCerimonias" placeholder="Dias de Cerimônias">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="text-center" for="Status"><h5>Estatus da Sprint</h5></label>
+                    <select class="form-control input-sm" ng-model="row.status" placeholder="Status">
+                        <option value="1">Nova</option>
+                        <option value="2">Em Execução</option>
+                        <option value="3">Finalizada</option>
+                        <option value="4">Cancelada</option>
+                    </Select>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-2">
+                    <label class="text-center" for="horasTrabDia"><h5>Horas Diárias</h5></label>
+                    <input type="time" class="form-control input-sm" ng-model="row.horasTrabDia" placeholder="Horas Diarias">
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-2">
+                    <label class="text-center" for="foco"><h5>Foco</h5></label>
+                    <div class="input-group">
+                        <input type="number" class="form-control input-sm" ng-model="row.foco" placeholder="Foco">
+                        <div class="input-group-addon">%</div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4">
+                    <label class="text-center" for="dataInicio"><h5>Início</h5></label>
+                    <input type="date" class="form-control input-sm" ng-model="row.dataInicio" placeholder="Início">
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-4">
+                    <label class="text-center" for="dataConclusao"><h5>Termino</h5></label>
+                    <input type="date" class="form-control input-sm" ng-model="row.dataConclusao" placeholder="Termino">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <label class="text-center" for="descricao"><h5>Objetivo da Sprint</h5></label>
+                    <textarea  class="form-control input-sm" ng-model="row.descricao"></textarea>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <label class="text-center" for="projeto"><h5>Projeto</h5></label>
+                    <div class="input-group">
+                        <input type="text" value="{{projetoSelecionado}}" name="projeto" class="form-control" disabled>
+                        <div class="input-group-btn">
+                            <!--  <button data-toggle="modal" href="#modalProjeto" type="button" class="btn btn-primary" tabindex="-1"><i rel="tooltip" title="Criar um novo projeto" class="fa fa-plus fa-fw"></i></button> -->
+                            <button type="button" rel="tooltip" title="Selecionar Projeto Existente" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right" ng-init="loadItemsCombo('/projeto')" role="menu">
+                                <li ng-repeat="(i, o) in itemsCombo" >
+                                    <a ng-click="alteraProjeto(o)">{{o.titulo}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12"><br>
+                    <button class="btn btn-warning pull-left" style="margin-bottom: 5px; margin-left: 5px;" ng-hide="esconder" ng-click="cancelar()">Cancelar</button>
+                    <button ng-click="save('/sprint')" class="btn btn-success pull-right">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
