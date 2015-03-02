@@ -2,7 +2,7 @@
 SERVER_URL = "http://localhost:82/ScrumWebAPI";
 
 //Criação ao $app que é o modulo que representa toda a aplicação
-var $app = angular.module('app',['ngRoute','ngAnimate']);
+var $app = angular.module('app',['ngRoute','ngAnimate','stpa.morris','chart.js']);
 
 $app.config(function($routeProvider,$httpProvider){
 

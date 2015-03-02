@@ -15,6 +15,8 @@
     <link href="public/css/plugins/timeline/timeline.css" rel="stylesheet">
     <link href="public/css/sb-admin.css" rel="stylesheet">
     <link href="public/css/ng-animation.css" rel="stylesheet">
+    <link href="public/js/lib/plugins/charts/angular-chart.css">
+   
      
 </head>
 
@@ -50,7 +52,9 @@
     <script src="public/js/lib/angular-route.min.js"></script>
     <script src="public/js/lib/angular-animate.min.js"></script>        
     <script src="public/js/lib/angular-resource.min.js"></script>     
-    
+    <script src="public/js/lib/plugins/morris/angular-morris-chart.min.js"></script>
+    <script src="public/js/lib/plugins/charts/Chart.min.js"></script>
+    <script src="public/js/lib/plugins/charts/angular-chart.min.js"></script>
 	
     <!--Controllers-->
     <script src="controllers/app.js"></script>
