@@ -28,4 +28,17 @@ function geralController($scope,$http,$routeParams,$location,$filter)
 				$scope.detalhesView = false;
 		}
 	};
+
+	$scope.hstep = 1;
+  $scope.mstep = 15;
+$scope.mytime = new Date();
+  $scope.options = {
+    hstep: [1, 2, 3],
+    mstep: [1, 5, 10, 15, 25, 30]
+  };
+
+  
+ 
+
+ 
 }

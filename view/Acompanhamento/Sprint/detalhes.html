@@ -1,40 +1,37 @@
-<div class="slide-left panel panel-primary" ng-hide="esconder">
+<div class="slide-left panel panel-primary" data-ng-init="loadSprint()" ng-controller="restController">
     <div class="panel-heading">
-        <i class="fa fa-plus fa-fw"></i> Sprint Titulo
+        <i class="fa fa-plus fa-fw"></i> Sprint Titulo {{sprints.titulo}} {{sprints.descricao}}
     </div>
     <!-- /.panel-heading -->
     <div class="panel-body">
-        <div class="slide-left panel panel-primary">
-            <div class="panel-heading">
-                <i class="fa fa-plus fa-fw"></i> Estoria Titulo
+        <div class="col-xs-12 col-sm-6 col-lg-4" ng-repeat="estoria in estorias">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <i class="fa fa-plus fa-fw"></i> {{estoria.descricao}}
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <ul class="media-list list-group">
+                        <li class="media list-group-item" ng-repeat="tarefa in tarefas">
+                            <div class="media-body col-xs-8">
+                                {{tarefa.titulo}}
+                            </div>
+                            <div class="col-xs-1">
+                                <i class="glyphicon glyphicon-ok"></i>
+                            </div>
+                            <div class="media-left col-xs-2">
+                                <img class="media-object" src="http://placehold.it/24x24" alt="...">
+                            </div>
+                        </li>                        
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    Panel footer
+                </div>
             </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a  href="" class="{{row.id}}" alt="Clique para editar" ng-click="loadRow('/projeto',row.id)">
-                        Titulo da tarefa
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a  href="" class="{{row.id}}" alt="Clique para editar" ng-click="loadRow('/projeto',row.id)">
-                        Titulo da tarefa
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a  href="" class="{{row.id}}" alt="Clique para editar" ng-click="loadRow('/projeto',row.id)">
-                        Titulo da tarefa
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a  href="" class="{{row.id}}" alt="Clique para editar" ng-click="loadRow('/projeto',row.id)">
-                        Titulo da tarefa
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="panel-footer">Panel footer</div>
-        </div>
+        </div>        
     </div>
-    <div class="panel-footer">Panel footer</div>
+    <div class="panel-footer">
+        Panel footer
+    </div>
 </div>

@@ -3,6 +3,9 @@ function restController($scope,$http,$routeParams,$location,$filter)
 	//lista
 	$scope.rows = null;
 	$scope.itemsCombo = null;
+	$scope.sprints = null;
+	$scope.estorias = null;
+	$scope.tarefas = null;
 	//um  
 	$scope.row = null;
 	$scope.idAnterior = null;
@@ -31,7 +34,7 @@ function restController($scope,$http,$routeParams,$location,$filter)
 			$('.'+id).addClass('disabled');
 			$scope.idAnterior = id;
 		}
-	}
+	};
 
 	$scope.HabilitarDivPorId = function (id,Habilitar) {		
 		
@@ -41,7 +44,7 @@ function restController($scope,$http,$routeParams,$location,$filter)
 		}else{
 			$('.'+id).addClass('disabled');
 		}
-	}
+	};
 	$scope.criaDivAlerta = function (idDivAnterior, msg, tipo) {
 		if (tipo == null){
 			tipo = 'alert-success';
@@ -53,14 +56,14 @@ function restController($scope,$http,$routeParams,$location,$filter)
 
 	$scope.numberOfPages =function(){
 		return Math.ceil($scope.rows.length/$scope.pageSize);                
-	}
+	};
 
 	$scope.loadAll = function(rota){
 		$scope.showLoader();
 		$http.get($scope.server(rota)).success(function(data){
 			$scope.rows = data;			
 		});
-	}
+	};
 
 	/**
 	 * Busca Array de Objetos JSON para preencher uma combo
@@ -72,7 +75,7 @@ function restController($scope,$http,$routeParams,$location,$filter)
 		$http.get($scope.server(rota)).success(function(data){
 			$scope.itemsCombo = data;			
 		});
-	}
+	};
 
 	$scope.loadRow = function(rota,id){
 		$scope.esconder = false;
@@ -84,7 +87,36 @@ function restController($scope,$http,$routeParams,$location,$filter)
 			$scope.row.isUpdate = true;	
 
 		});
-	}
+	};
+
+	$scope.loadSprint = function(){
+	
+		$scope.showLoader();
+		$http.get($scope.server("/sprint/"+$routeParams.id)).success(function(data){
+			$scope.sprints = data;
+			
+		});
+		$scope.loadEstoriasBySprint($routeParams.id);
+		
+
+	};
+
+	$scope.loadEstoriasBySprint = function(sprintId){
+		alert("Passou na estoria");
+		$scope.showLoader();
+			$http.get($scope.server("/estoriasBySprint/"+sprintId)).success(function(data){
+					$scope.estorias =  data;
+		});
+
+	};
+
+	$scope.loadTarefas = function(){
+	
+		$scope.showLoader();
+			$http.get($scope.server("/tarefas/"+$routeParams.id)).success(function(data){
+				$scope.tarefas = data;
+		});
+	};
 
 	$scope.save = function(rota){
 		$scope.showLoader();
@@ -99,7 +131,7 @@ function restController($scope,$http,$routeParams,$location,$filter)
 			$scope.rows.push(data);
 			//$scope.new();			
 		});
-	}
+	};
 
 	$scope.del = function(rota,id){
 
@@ -111,7 +143,7 @@ function restController($scope,$http,$routeParams,$location,$filter)
 			});
 		}
 
-	}
+	};
 
 	$scope.new = function(){
 		$scope.row = null;
@@ -119,13 +151,13 @@ function restController($scope,$http,$routeParams,$location,$filter)
 		$scope.row = {
 			id : 0
 		}		
-	}
+	};
 
 	$scope.cancelar = function(){
 		$scope.row = null;
 		$scope.esconder = true;	
 		$scope.HabilitarDivPorId($scope.idAnterior,true);		
-	}
+	};
 	
 
 	
@@ -139,12 +171,45 @@ function restController($scope,$http,$routeParams,$location,$filter)
 		}
 
 		return 0;//retorna o primeiro index caso nao encontre o index conrrespondente.
-	}
+	};
 
 	$scope.RemoveItemFromArray = function(){
 		var index = $scope.getIndexToRemove($scope.row, $scope.rows);
 		$scope.rows.splice(index,1);
-	}
+	};
 
+$scope.today = function() {
+    $scope.dt = new Date();
+  };
+  $scope.today();
 
+  $scope.clear = function () {
+    $scope.dt = null;
+  };
+
+  // Disable weekend selection
+  $scope.disabled = function(date, mode) {
+    return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+  };
+
+  $scope.toggleMin = function() {
+    $scope.minDate = $scope.minDate ? null : new Date();
+  };
+  $scope.toggleMin();
+
+  $scope.open = function($event) {
+  	
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.opened = true;
+    
+  };
+
+  $scope.dateOptions = {
+    formatYear: 'yy',
+    startingDay: 1
+  };
+
+  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+  $scope.format = $scope.formats[0];
 }

@@ -2,7 +2,7 @@
 SERVER_URL = "http://localhost:82/ScrumWebAPI";
 
 //Criação ao $app que é o modulo que representa toda a aplicação
-var $app = angular.module('app',['ngRoute','ngAnimate','chart.js']);
+var $app = angular.module('app',['ngRoute','ngAnimate','chart.js','ui.bootstrap']);
 
 $app.config(function($routeProvider,$httpProvider){
 
@@ -11,13 +11,14 @@ $app.config(function($routeProvider,$httpProvider){
 	when('/',{templateUrl:'view/Home/home.php'}).
 	when('/icones', {templateUrl:'view/icones/icones.php'}).
 	when('/projeto',{templateUrl:'view/projeto/home.html',		Controller:restController}).
-	when('/sprint',{templateUrl:'view/Sprint/home.html',			Controller:restController}).
+	when('/sprint',{templateUrl:'view/Sprint/home.html',		Controller:restController}).
 	when('/estoria',{templateUrl:'view/estoria/home.html',		Controller:restController}).
 	when('/time',{templateUrl:'view/time/home.html',				Controller:restController}).
 	when('/papel',{templateUrl:'view/papel/home.html',		Controller:restController}).
 	when('/tipoTarefa',{templateUrl:'view/tipoTarefa/home.html',     Controller:restController}).
 	when('/tarefa',{templateUrl:'view/tarefa/home.html',			Controller:restController}).
 	when('/sprintsView',{templateUrl:'view/Acompanhamento/Sprint/home.html',			Controller:restController}).
+	when('/sprintDetalhes/:id',{templateUrl:'view/Acompanhamento/Sprint/detalhes.html',			Controller:restController}).
 	otherwise({redirectTo:'/'});
 
 	//configura o RESPONSE interceptor, usado para exibir o ícone de acesso ao servidor

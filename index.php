@@ -55,6 +55,7 @@
     <script src="public/js/lib/plugins/morris/angular-morris-chart.min.js"></script>
     <script src="public/js/lib/plugins/charts/Chart.min.js"></script>
     <script src="public/js/lib/plugins/charts/angular-chart.min.js"></script>
+    <script src="public/js/lib/plugins/diretivas/ui-bootstrap-tpls-0.12.1.min.js"></script>
 	
     <!--Controllers-->
     <script src="controllers/app.js"></script>

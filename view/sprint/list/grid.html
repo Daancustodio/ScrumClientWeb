@@ -36,9 +36,9 @@
         <footer><cite title="Source Title">Nome do Usuario</cite></footer>
         
         <div class="btn-group pull-left col-xs-12 btn-block">
-            <button ng-init="btnView = 'btn-default'" type="button" ng-mouseover="btnView = 'btn-success'" ng-mouseleave="btnView = 'btn-default'"  ng-click="showBurnDown(true)" class=" {{row.id}} btn btn-sm col-xs-4 {{btnView}}">
+            <a ng-init="btnView = 'btn-default'"  ng-mouseover="btnView = 'btn-success'" ng-mouseleave="btnView = 'btn-default'" href="#/sprintDetalhes/{{row.id}}" class=" {{row.id}} btn btn-sm col-xs-4 {{btnView}}">
             <i class="glyphicon glyphicon-eye-open"></i>
-            </button>
+            </a>
             <button ng-init="btnEdit = 'btn-default'" type="button" ng-mouseover="btnEdit = 'btn-warning'" ng-mouseleave="btnEdit = 'btn-default'"  ng-click="loadRow('/sprint',row.id)" class=" {{row.id}} btn btn-sm col-xs-4 {{btnEdit}}">
             <i class="glyphicon glyphicon-pencil"></i>
             </button>
