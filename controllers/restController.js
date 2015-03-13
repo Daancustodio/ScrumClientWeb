@@ -95,25 +95,21 @@ function restController($scope,$http,$routeParams,$location,$filter)
 		$http.get($scope.server("/sprint/"+$routeParams.id)).success(function(data){
 			$scope.sprints = data;
 			
-		});
-		$scope.loadEstoriasBySprint($routeParams.id);
-		
-
+		});		
 	};
 
 	$scope.loadEstoriasBySprint = function(sprintId){
-		alert("Passou na estoria");
-		$scope.showLoader();
-			$http.get($scope.server("/estoriasBySprint/"+sprintId)).success(function(data){
-					$scope.estorias =  data;
+		
+		$http.get($scope.server("/estoriasBySprint/"+sprintId)).success(function(data){
+			$scope.estorias =  data;			
 		});
 
+		
 	};
 
-	$scope.loadTarefas = function(){
-	
-		$scope.showLoader();
-			$http.get($scope.server("/tarefas/"+$routeParams.id)).success(function(data){
+	$scope.loadTarefasByEstoria = function(IdEstoria){
+		
+			$http.get($scope.server("/tarefasByEstoria/"+IdEstoria)).success(function(data){
 				$scope.tarefas = data;
 		});
 	};

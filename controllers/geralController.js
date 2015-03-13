@@ -6,7 +6,7 @@ function geralController($scope,$http,$routeParams,$location,$filter)
 
 	$scope.naoImplementado = function(){
 		alert("Não Implementado");
-	}
+	};
 	
 	$scope.showBurnDown = function(bool){
 		if(bool){
