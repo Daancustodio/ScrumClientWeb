@@ -5,22 +5,18 @@
     <!-- /.panel-heading -->
     <div class="panel-body">
         <form class="form">
-            <!-- <div class="col-xs-12 col-sm-2 col-md-2">
-                <label class="text-center" for="id"><h5>ID</h5></label>
-                <input type="number" class="form-control input-sm" name="id" disabled>
-            </div> -->
-            <div class="col-xs-12 col-sm-10 col-md-10">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <label class="text-center" for="id"><h5>Título</h5></label>
+                <input type="number" class="form-control input-sm" ng-model="row.titulo">
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
                 <label class="text-center" for="idTipotarefa"><h5>Tipo de Tarefa</h5></label>
-                <select class="form-control input-sm" data-ng-model="row.id_tipotarefa" placeholder="Tipo de Tarefa">
-                    <option value="5">Descrição Tipo de Tarefa</option>
-                    <option value="6">Descrição Tipo de Tarefa</option>
-                    <option value="7">Descrição Tipo de Tarefa</option>
-                </Select>
+                <select class="form-control input-sm" ng-init="loadItemsCombo('/tipoTarefa')" data-ng-model="row.id_tipotarefa" placeholder="Tipo de Tarefa">
+                <option value="0" ng-selected="true">Selecione...</option>
+                <option ng-repeat="(i, o) in itemsCombo" value="{{o.id}}">{{o.titulo}}</option>                    
+                </Select>                
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <label class="text-center" for="descricao"><h5>Descrição</h5></label>
-                <input type="text" class="form-control input-sm" data-ng-model="row.descricao" placeholder="Insira uma descrição">
-            </div>
+            
             <div class="col-xs-6 col-sm-6 col-md-2">
                 <label class="text-center" for="horasEstimativa"><h5>Estimativa</h5></label>
                 <input type="time" class="form-control input-sm" data-ng-model="row.horasEstimativa" placeholder="Estimativa">
@@ -48,12 +44,14 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <label class="text-center" for="idUsuarioPapelTime"><h5>Responsável</h5></label>
-                <select class="form-control input-sm" data-ng-model="row.id_usuarioPapelTime" placeholder="Usuario Responsável">
-                    <option value="1">Daniel Custódio</option>
+                <select class="form-control input-sm" data-ng-model="row.idUsuarioPapelTime" placeholder="Usuario Responsável" ng-init="loadItemsComboResponsavel('/membroTime')" >
+                <option value="0">Selecione...</option>
+            <option ng-repeat="(i, o) in itemsComboResponsavel" value="{{o.id}}">{{o.id}}</option>
+                    <!-- <option value="1">Daniel Custódio</option>
                     <option value="2">Fabio Campos</option>
                     <option value="3">Carlos Lúcio</option>
                     <option value="4">André abel</option>
-                    <option value="5">Raphael Freitas</option>
+                    <option value="5">Raphael Freitas</option> -->
                 </Select>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4">
@@ -65,10 +63,16 @@
                     <option value="4">Cancelada</option>
                 </Select>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12" ng-hide="true">
                 <label class="text-center" for="obs"><h3>Observações</h3></label>
                 <textarea  class="form-control input-sm" data-ng-model="row.obs"></textarea>
             </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <label class="text-center" for="descricao"><h3>Descrição</h3></label>
+                <textarea type="text" class="form-control input-sm" data-ng-model="row.descricao" placeholder="Insira uma descrição"></textarea>
+            </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12"><br>
                     <button class="btn btn-warning pull-left" style="margin-bottom: 5px; margin-left: 5px;" ng-hide="esconder" ng-click="cancelar()">Cancelar</button>
                     <button ng-click="save('/tarefa')" class="btn btn-success pull-right">Salvar</button>

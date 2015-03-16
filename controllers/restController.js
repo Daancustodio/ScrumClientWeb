@@ -3,6 +3,7 @@ function restController($scope,$http,$routeParams,$location,$filter)
 	//lista
 	$scope.rows = null;
 	$scope.itemsCombo = null;
+	$scope.itemsComboResponsavel = null;
 	$scope.sprints = null;
 	$scope.estorias = null;
 	$scope.tarefas = null;
@@ -74,6 +75,18 @@ function restController($scope,$http,$routeParams,$location,$filter)
 		$scope.showLoader();
 		$http.get($scope.server(rota)).success(function(data){
 			$scope.itemsCombo = data;			
+		});
+	};
+
+	/**
+	 * Busca Array de Objetos JSON para preencher uma combo
+	 * @param  {String} rota Rota para busca dos dados
+	 * @return {Array}
+	 */
+	$scope.loadItemsComboResponsavel = function(rota){
+		$scope.showLoader();
+		$http.get($scope.server(rota)).success(function(data){
+			$scope.itemsComboResponsavel = data;			
 		});
 	};
 

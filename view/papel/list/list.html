@@ -4,7 +4,7 @@
         <ul class="list-group">
             <li  ng-repeat="row in rows" class="list-group-item {{row.id}}">
                 <a  href="" class="{{row.id}}" alt="Clique para editar" ng-click="loadRow('/papel',row.id)">
-                {{row.descricao}}
+                {{row.titulo}}
                 </a>
                 <div class="btn-group pull-right">
                     <button ng-init="btnEdit = 'btn-default'" type="button" ng-mouseover="btnEdit = 'btn-warning'" ng-mouseleave="btnEdit = 'btn-default'"  ng-click="loadRow('/papel',row.id)" class=" {{row.id}} btn btn-xs {{btnEdit}}">
