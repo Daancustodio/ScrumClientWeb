@@ -5,17 +5,17 @@
     <!-- /.panel-heading -->
     <div class="panel-body">
         <form >
-            <div class="col-xs-12 col-sm-2 col-md-2">
+            <!-- <div class="col-xs-12 col-sm-2 col-md-2">
                 <label class="text-center" for="id"><h5>ID</h5></label>
                 <input type="number" class="form-control input-sm" name="id" disabled>
-            </div>
-            <div class="col-xs-12 col-sm-10 col-md-10">
-                <label class="text-center" for="descricao"><h5>Descrição da Estória</h5></label>
-                <input type="text"  class="form-control input-sm" ng-model="row.descricao">
+            </div> -->
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <label class="text-center" for="titulo"><h5>Titulo da Estória</h5></label>
+                <input type="text"  class="form-control input-sm" ng-model="row.titulo">
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4">
                 <label class="text-center" for="ptsEstimados"><h5>Pontos Estimados</h5></label>
-                <input type="number" class="form-control input-sm" ng-model="row.ptsEstimados" placeholder="Pontos Estimados">
+                <input type="number" class="form-control input-sm" ng-model="row.pontosEstimados" placeholder="Pontos Estimados">
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4">
                 <label class="text-center" for="dataInicio"><h5>Início</h5></label>
@@ -41,8 +41,14 @@
                                 <option value="ID">Descrição Sprint</option>
                                 <option value="ID">Descrição Sprint</option>
                 </Select> -->
-                <input type="text" data-ng-model="row.id_sprint">
+                <input type="text" data-ng-model="row.idSprint">
             </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <label class="text-center" for="descricao"><h5>Descrição da Estória</h5></label>
+                <textarea class="form-control input-sm" ng-model="row.descricao"></textarea> 
+            </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12"><br>
                 <button class="btn btn-warning pull-left" style="margin-bottom: 5px; margin-left: 5px;" ng-hide="esconder" ng-click="cancelar()">Cancelar</button>
                 <button ng-click="save('/estoria')" class="btn btn-success pull-right">Salvar</button>

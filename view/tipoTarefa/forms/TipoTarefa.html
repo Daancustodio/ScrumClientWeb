@@ -1,14 +1,18 @@
 <div class="flip-in col-xs-12 col-sm-12 col-md-6" ng-hide="esconder">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <i class="fa fa-plus fa-fw"></i> Time {{row.descricao}}
+            <i class="fa fa-plus fa-fw"></i> Time {{row.titulo}}
         </div>
         <!-- /.panel-heading -->
         <div class="panel-body">
-            <form ng-submit="save()" class="form-horizontal">
+            <form ng-submit="save('/tipoTarefa')" class="form-horizontal">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <label class="text-center" for="descricao"><h5>Titulo</h5></label>
+                    <input type="text" class="form-control input-sm" ng-model="row.titulo" name="descricao" placeholder="Insira uma descrição">
+                </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <label class="text-center" for="descricao"><h5>Descrição</h5></label>
-                    <input type="text" class="form-control input-sm" ng-model="row.descricao" name="descricao" placeholder="Insira uma descrição">
+                    <textarea type="text" class="form-control input-sm" ng-model="row.descricao" name="descricao" placeholder="Insira uma descrição"></textarea>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom: 5px;"><br>
                     <button type="submit" class="btn btn-primary pull-right">Salvar</button>

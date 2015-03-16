@@ -20,9 +20,9 @@
                     <tr  ng-repeat="row in rows">
                         <td>
                             <div class="btn-group pull-left">
-                                <button ng-init="btnView = 'btn-default'" type="button" ng-mouseover="btnView = 'btn-success'" ng-mouseleave="btnView = 'btn-default'"  ng-click="naoImplementado()" class=" {{row.id}} btn btn-xs {{btnView}}">
+                                <a ng-init="btnView = 'btn-default'"  ng-mouseover="btnView = 'btn-success'" ng-mouseleave="btnView = 'btn-default'" href="#/sprintDetalhes/{{row.id}}" class=" {{row.id}} btn btn-xs col-xs-4 {{btnView}}">
                                 <i class="glyphicon glyphicon-eye-open"></i>
-                                </button>
+                                </a>
                                 <button ng-init="btnEdit = 'btn-default'" type="button" ng-mouseover="btnEdit = 'btn-warning'" ng-mouseleave="btnEdit = 'btn-default'"  ng-click="loadRow('/sprint',row.id)" class=" {{row.id}} btn btn-xs {{btnEdit}}">
                                 <i class="glyphicon glyphicon-pencil"></i>
                                 </button>
@@ -36,7 +36,7 @@
                         <td>{{row.dataConclusao}}</td>
                         <td>{{row.status}}</td>
                         <td>{{row.foco}}</td>
-                        <td>{{row.id_projeto}}</td>
+                        <td>{{row.idProjeto}}</td>
                     </tr>
                 </tbody>
             </table>

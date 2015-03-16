@@ -21,7 +21,7 @@ function restController($scope,$http,$routeParams,$location,$filter)
 	$scope.alteraProjeto = function(obj){
 		$scope.projetoSelecionado = obj.titulo;
 		$scope.idProjeto = obj.id;
-		$scope.row.id_projeto = obj.id;             
+		$scope.row.idProjeto = obj.id;             
 	};
 
 	$scope.alteraItemCorrente = function (id) {		
