@@ -36,12 +36,14 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <label class="text-center" for="Status"><h5>Sprint</h5></label>
-                <!-- <select class="form-control input-sm" name="Status" placeholder="Status">
-                                <option value="ID">Descrição Sprint</option>
-                                <option value="ID">Descrição Sprint</option>
-                                <option value="ID">Descrição Sprint</option>
-                </Select> -->
-                <input type="text" data-ng-model="row.idSprint">
+                <select class="form-control input-sm" name="Status" placeholder="Status"
+                ng-init="loadItemsCombo('/sprint')" data-ng-model="row.idSprint" role="menu">
+                <option value="0" ng-selected="true">Selecione...</option>
+                <option ng-repeat="(i, o) in itemsCombo" value="{{o.id}}">{{o.titulo}}</option>                                
+                </Select>
+
+
+                
             </div>
             
             <div class="col-xs-12 col-sm-12 col-md-12">
