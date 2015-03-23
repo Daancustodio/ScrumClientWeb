@@ -13,6 +13,7 @@
     <link href="public/font-awesome/css/font-awesome.css" rel="stylesheet">   
     <link href="public/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
     <link href="public/css/plugins/timeline/timeline.css" rel="stylesheet">
+    <link rel="stylesheet" href="public/angular-motion/dist/angular-motion.min.css">
     <link href="public/css/sb-admin.css" rel="stylesheet">
     <link href="public/css/ng-animation.css" rel="stylesheet">
     <link href="public/js/lib/plugins/charts/angular-chart.css">
@@ -31,7 +32,7 @@
         ?>
 		
     <div id="page-wrapper">
-        
+            <div id="alerts-container"></div>
             <div ng-view class="col-xs-12" style="margin-top: 2%; margin-left: -2%">
 				<!-- Dentro desta div é apresentado todo conteudo mutável do aplicativo -->
             </div>           
@@ -56,6 +57,8 @@
     <script src="public/js/lib/plugins/charts/Chart.min.js"></script>
     <script src="public/js/lib/plugins/charts/angular-chart.min.js"></script>
     <script src="public/js/lib/plugins/diretivas/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="public/angular-strap/dist/angular-strap.min.js"></script>
+    <script src="public/angular-strap/dist/angular-strap.tpl.min.js"></script>
 	
     <!--Controllers-->
     <script src="controllers/app.js"></script>

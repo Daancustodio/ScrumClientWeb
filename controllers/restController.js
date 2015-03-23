@@ -77,7 +77,7 @@ function restController($scope,$http,$routeParams,$location,$filter)
 			$scope.itemsCombo = data;			
 		});
 	};
-
+	
 	/**
 	 * Busca Array de Objetos JSON para preencher uma combo
 	 * @param  {String} rota Rota para busca dos dados
@@ -115,9 +115,7 @@ function restController($scope,$http,$routeParams,$location,$filter)
 		
 		$http.get($scope.server("/estoriasBySprint/"+sprintId)).success(function(data){
 			$scope.estorias =  data;			
-		});
-
-		
+		});		
 	};
 
 	$scope.loadTarefasByEstoria = function(IdEstoria){
@@ -142,12 +140,12 @@ function restController($scope,$http,$routeParams,$location,$filter)
 		});
 	};
 
-	$scope.del = function(rota,id){
+	$scope.del = function(rota,id,index){
 
 		if (confirm("Deseja excluir " + id + "?")){
 			$http.delete($scope.server(rota+"/"+id)).success(function(s){
 				alert("Excluído com sucesso");
-				$scope.rows.pop();
+				$scope.rows.splice(index,1);
 				$scope.new();
 			});
 		}
@@ -168,8 +166,6 @@ function restController($scope,$http,$routeParams,$location,$filter)
 		$scope.HabilitarDivPorId($scope.idAnterior,true);		
 	};
 	
-
-	
 	$scope.getIndexToRemove = function(item, itens){
 		
 		for (var i = itens.length - 1; i >= 0; i--) {
@@ -187,38 +183,5 @@ function restController($scope,$http,$routeParams,$location,$filter)
 		$scope.rows.splice(index,1);
 	};
 
-$scope.today = function() {
-    $scope.dt = new Date();
-  };
-  $scope.today();
 
-  $scope.clear = function () {
-    $scope.dt = null;
-  };
-
-  // Disable weekend selection
-  $scope.disabled = function(date, mode) {
-    return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
-  };
-
-  $scope.toggleMin = function() {
-    $scope.minDate = $scope.minDate ? null : new Date();
-  };
-  $scope.toggleMin();
-
-  $scope.open = function($event) {
-  	
-    $event.preventDefault();
-    $event.stopPropagation();
-    $scope.opened = true;
-    
-  };
-
-  $scope.dateOptions = {
-    formatYear: 'yy',
-    startingDay: 1
-  };
-
-  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-  $scope.format = $scope.formats[0];
 }

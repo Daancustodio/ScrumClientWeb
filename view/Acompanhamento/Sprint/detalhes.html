@@ -1,60 +1,41 @@
-<div class="slide-left panel panel-primary" data-ng-init="loadSprint()" ng-controller="restController">
+<div class="panel-group" ng-controller="restController" data-allow-multiple="true" bs-collapse>
+  <div class="slide-left panel panel-primary" data-ng-init="loadSprint()">
     <div class="panel-heading">
         <i class="fa fa-plus fa-fw"></i> Sprint Titulo {{sprints.titulo}}
     </div>
-    <!-- /.panel-heading -->
-    <div class="panel-body" >
-        <!-- <div ng-include  src="'view/Acompanhamento/Sprint/panelEstorias.html'"  class="slide-down"></div> -->
-        <div class="col-xs-12 col-sm-6 col-lg-4" ng-repeat="estoria in sprints.estorias">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <i class="fa fa-plus fa-fw"></i> {{estoria.titulo}}
+    <div class="panel-body">
+      <div class="col-xs-12 col-sm-6 col-lg-4" ng-repeat="estoria in sprints.estorias">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+              <i class="fa fa-plus fa-fw"></i> {{estoria.titulo}}
+          </div>
+          <!-- /.panel-heading -->
+          <div class="panel-body">
+            <ul class="media-list list-group">
+              <li class="media list-group-item" ng-repeat="tarefa in estoria.tarefas">
+                <div class="media-body col-xs-8">
+                  {{tarefa.titulo}}
                 </div>
-                <!-- /.panel-heading -->
-                <div class="panel-body">
-                    <!-- <div ng-include src="'view/Acompanhamento/Sprint/panelTarefas.html'"  class="slide-down"></div> -->
-                    <ul class="media-list list-group">
-                        <li class="media list-group-item" ng-repeat="tarefa in estoria.tarefas">
-                            <div class="media-body col-xs-8">
-                                {{tarefa.descricao}}
-                            </div>
-                            <div class="col-xs-1">
-                                <i class="glyphicon glyphicon-ok"></i>
-                            </div>
-                            <div class="media-left col-xs-2">
-                                <img class="media-object" src="http://placehold.it/24x24" alt="...">
-                            </div>
-                        </li>
-                    </ul>
+                <div class="col-xs-1">
+                  <i class="glyphicon glyphicon-ok"></i>
                 </div>
-                <div class="panel-footer">
-                    {{estoria.descricao}}
+                <div class="media-left col-xs-2">
+                  <img class="media-object" src="http://placehold.it/24x24" alt="...">  
                 </div>
+              </li>
+            </ul>
+          </div>
+          <div class="panel-footer">
+            <small><a bs-collapse-toggle><i class="glyphicon glyphicon-eye-open text-center"> Descrição</i></a></small>
+            <div class="panel-collapse" bs-collapse-target>
+              {{ estoria.descricao }}
             </div>
-            
+          </div>
         </div>
+      </div>
     </div>
     <div class="panel-footer">
         {{sprints.descricao}}
     </div>
+  </div>
 </div>
-<!--onLoad="loadEstoriasBySprint({{sprints.id}})" -->
-
-<!-- <tr ng-repeat-start="order in orders">
-              <td colspan="4" ng-click="order.collapseRows = !order.collapseRows" class="collapsible-row">
-                  {{order.UserName}}
-                  <span ng-class="{'caret':!order.collapseRows, 'right-caret':order.collapseRows}"></span>
-              </td>
-          </tr>
-          <tr ng-repeat-start="user in order.Users" ng-show="!order.collapseRows">
-              <td colspan="4" style="padding-left:150px" ng-click="user.collapseRows = !user.collapseRows" class="collapsible-row">
-                {{user.MarketID}}
-                <span ng-class="{'caret':!order.collapseRows, 'right-caret':order.collapseRows}"></span>
-              </td>
-          </tr>
-          <tr ng-repeat-end ng-repeat="limit in user.Limits" ng-hide="order.collapseRows || user.collapseRows">
-              <td rowspan="{{user.Limits.length}}" colspan="2" ng-if="$first"></td>
-              <td>{{limit.SingleOrderLimit}}</td>
-              <td>{{limit.DoubleOrderLimit}}</td>
-          </tr>
-          <tr ng-repeat-end></tr> -->

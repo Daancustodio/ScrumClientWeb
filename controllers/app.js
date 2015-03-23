@@ -2,7 +2,7 @@
 SERVER_URL = "http://localhost:82/ScrumWebAPI";
 
 //Criação ao $app que é o modulo que representa toda a aplicação
-var $app = angular.module('app',['ngRoute','ngAnimate','chart.js','ui.bootstrap']);
+var $app = angular.module('app',['ngRoute','ngAnimate','chart.js','ui.bootstrap','mgcrea.ngStrap']);
 
 $app.config(function($routeProvider,$httpProvider){
 
@@ -47,6 +47,8 @@ $app.config(function($routeProvider,$httpProvider){
 			  });
 		}
 	});
+
+
 });	
 
 $app.run(function($rootScope){
@@ -81,3 +83,10 @@ $app.filter('startFrom', function() {
         return input.slice(start);
     }
 });
+
+$app.config(function($datepickerProvider) {
+  angular.extend($datepickerProvider.defaults, {
+    dateFormat: 'dd/MM/yyyy',
+    startWeek: 1
+  });
+})

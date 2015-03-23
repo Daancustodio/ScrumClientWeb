@@ -26,11 +26,13 @@
                         <option value="3">Finalizada</option>
                         <option value="4">Cancelada</option>
                     </Select>
+
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-2">
                     <label class="text-center" for="horasTrabDia"><h5>Horas Diárias</h5></label>
-                    <!-- <input type="time" class="form-control input-sm" ng-model="row.horasTrabDia" placeholder="Horas Diarias"> -->
-                    <timepicker ng-model="row.horasTrabDia" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+                    <input type="time" class="form-control input-sm" ng-model="row.horasTrabDia" placeholder="Horas Diarias">
+                    <!-- <timepicker ng-model="row.horasTrabDia" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker> -->
+                    <!-- <input type="text" size="8" class="form-control input-sm" data-time-format="HH:mm" data-min-time="01:00" data-max-time="12:00" data-animation="am-flip-x" ng-model="row.horasTrabDia" data-autoclose="1" placeholder="Horas" bs-timepicker> -->
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-2">
                     <label class="text-center" for="foco"><h5>Foco</h5></label>
@@ -41,32 +43,15 @@
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-4">
                     <label class="text-center" for="dataInicio"><h5>Início</h5></label>
-                    <input type="date" class="form-control input-sm" ng-model="row.dataInicio" placeholder="Início">
-                    <!-- <div class="row">
-
-                        <p class="input-group">
-                        <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"/>
-                        <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-                        </p>
-
-                    </div> -->
+                    <!-- <input type="date" class="form-control input-sm" ng-model="" placeholder="Início"> -->
+                    <input type="text" size="10" class="form-control input-sm" ng-model="row.dataInicio" data-autoclose="1" data-animation="am-flip-x" placeholder="Início" bs-datepicker>
+                    
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-4">
                     <label class="text-center" for="dataConclusao"><h5>Termino</h5></label>
-                    <input type="date" class="form-control input-sm" ng-model="row.dataConclusao" placeholder="Termino"> 
+                    <!-- <input type="date" class="form-control input-sm" ng-model="row.dataConclusao" placeholder="Termino">  -->
+                    <input type="text" size="10" class="form-control input-sm" ng-model="row.dataConclusao" data-autoclose="1" placeholder="Termino" data-animation="am-flip-x" bs-datepicker>
 
-                    <!-- <div class="row">
-
-                        <p class="input-group">
-                        <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"/>
-                        <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-                        </p>
-
-                    </div> -->
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <label class="text-center" for="descricao"><h5>Objetivo da Sprint</h5></label>
@@ -82,7 +67,7 @@
                             <span class="caret"></span>
                             <span class="sr-only">Toggle Dropdown</span>
                             </button>
-                            <ul class="dropdown-menu dropdown-menu-right" ng-init="loadItemsCombo2('/projeto')" role="menu">
+                            <ul class="dropdown-menu dropdown-menu-right" ng-init="loadItemsCombo('/projeto')" role="menu">
                                 <li ng-repeat="(i, o) in itemsCombo" >
                                     <a ng-click="alteraProjeto(o)">{{o.titulo}}</a>
                                 </li>

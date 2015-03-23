@@ -7,11 +7,11 @@
         <form class="form">
             <div class="col-xs-12 col-sm-6 col-md-6">
                 <label class="text-center" for="id"><h5>Título</h5></label>
-                <input type="number" class="form-control input-sm" ng-model="row.titulo">
+                <input type="text" class="form-control input-sm" ng-model="row.titulo">
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
                 <label class="text-center" for="idTipotarefa"><h5>Tipo de Tarefa</h5></label>
-                <select class="form-control input-sm" ng-init="loadItemsCombo('/tipoTarefa')" data-ng-model="row.id_tipotarefa" placeholder="Tipo de Tarefa">
+                <select class="form-control input-sm" ng-init="loadItemsCombo('/tipoTarefa')" data-ng-model="row.idTipoTarefa" placeholder="Tipo de Tarefa">
                 <option value="0" ng-selected="true">Selecione...</option>
                 <option ng-repeat="(i, o) in itemsCombo" value="{{o.id}}">{{o.titulo}}</option>                    
                 </Select>                
@@ -35,23 +35,19 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4">
                 <label class="text-center" for="idEstoria"><h5>Estória</h5></label>
-                <!-- <select class="form-control input-sm" data-ng-model="row.idEstoria" placeholder="Estória">
-                    <option value="ID">Descrição Estória</option>
-                    <option value="ID">Descrição Estória</option>
-                    <option value="ID">Descrição Estória</option>
-                </Select> -->
-                <input class="form-control input-sm" data-ng-model="row.id_estoria" placeholder="Estória">
+                <select class="form-control input-sm" data-ng-model="row.idEstoria" placeholder="Estória" ng-init="loadEstoriasBySprint(1)">
+                    <option value="0" ng-selected="true">Selecione...</option>
+                    <option ng-repeat="estoria in estorias" value="estoria.id">{{estoria.titulo}}</option>
+                    
+                </Select>
+                
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <label class="text-center" for="idUsuarioPapelTime"><h5>Responsável</h5></label>
                 <select class="form-control input-sm" data-ng-model="row.idUsuarioPapelTime" placeholder="Usuario Responsável" ng-init="loadItemsComboResponsavel('/membroTime')" >
-                <option value="0">Selecione...</option>
+                <option value="0" ng-selected="true">Selecione...</option>
             <option ng-repeat="(i, o) in itemsComboResponsavel" value="{{o.id}}">{{o.id}}</option>
-                    <!-- <option value="1">Daniel Custódio</option>
-                    <option value="2">Fabio Campos</option>
-                    <option value="3">Carlos Lúcio</option>
-                    <option value="4">André abel</option>
-                    <option value="5">Raphael Freitas</option> -->
+                    
                 </Select>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4">
