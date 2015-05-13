@@ -18,11 +18,11 @@
     <div class="row">
         <div ng-init="loadAll('/sprint')"></div>
 
-        <div ng-include src="'view/sprint/forms/Sprint.html'"  class="slide-down"></div>
+        <div ng-include src="'view/sprint/forms/sprint.html'"  class="slide-down"></div>
                
         <div ng-include src="'view/sprint/list/grid.html'"  class="slide-down" ng-show="gridView"></div>
         <div ng-include src="'view/sprint/list/list.html'" ng-hide="gridView" class="slide-top"></div>
-        <div ng-include src="'view/Acompanhamento/Sprint/burndown.html'" ng-show="detalhesView"></div> 
+        <div ng-include src="'view/acompanhamento/sprint/burndown.html'" ng-show="detalhesView"></div> 
         
     </div>    
 </div>
