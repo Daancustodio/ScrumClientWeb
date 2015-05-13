@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Scrum Project</title>
+
+    <link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css">
+    
+    <link href="public/font-awesome/css/font-awesome.css" rel="stylesheet">   
+    <link href="public/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+    <link href="public/css/plugins/timeline/timeline.css" rel="stylesheet">
+    <link rel="stylesheet" href="public/angular-motion/dist/angular-motion.min.css">
+    <link href="public/css/sb-admin.css" rel="stylesheet">
+    <link href="public/css/ng-animation.css" rel="stylesheet">
+    <link href="public/js/lib/plugins/charts/angular-chart.css">
+   
+     
+</head>
+
+<body ng-controller="geralController">
+
+    <div id="wrapper">  
+        <!--<div ng-include="'view/template/barraNavegacaoSuperior.html'"></div>
+        <div ng-include="'view/template/menuStaticoLateralEsquerda.html'"></div> 
+        -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="?p=home">Scrum Project</a>
+    </div>
+    
+    <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-tasks">
+                <li>
+                    <a href="#">
+                        <div>
+                            <p>
+                                <strong>Sprint 1</strong>
+                                <span class="pull-right text-muted">40% Complete</span>
+                            </p>
+                            <div class="progress progress-striped active">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                    <span class="sr-only">40% Complete (success)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#">
+                        <div>
+                            <p>
+                                <strong>Sprint 2</strong>
+                                <span class="pull-right text-muted">20% Complete</span>
+                            </p>
+                            <div class="progress progress-striped active">
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                    <span class="sr-only">80% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                
+                <li>
+                    <a class="text-center" href="#">
+                        <strong>Ver Todas as Sprints</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </li>
+            </ul>
+            <!-- /.dropdown-tasks -->
+        </li>
+        <!-- /.dropdown -->
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-alerts">
+                <li>
+                    <a href="#">
+                        <div>
+                            <i class="fa fa-comment fa-fw"></i> Novo Comentário
+                            <span class="pull-right text-muted small">10 minutos</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                
+                <li>
+                    <a href="#">
+                        <div>
+                            <i class="fa fa-tasks fa-fw"></i> Nova Tarefa
+                            <span class="pull-right text-muted small">4 minutos</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                
+                <li>
+                    <a class="text-center" href="#">
+                        <strong>See All Alerts</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </li>
+            </ul>
+            <!-- /.dropdown-alerts -->
+        </li>
+        <!-- /.dropdown -->
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                <li><a href="#"><i class="fa fa-user fa-fw"></i> User </a>
+                </li>
+                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configurações </a>
+                </li>
+                <li class="divider"></li>
+                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair </a>
+                </li>
+            </ul>
+            <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+    </ul>
+</nav>
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li>                         
+                <a href="#"><i class="fa fa-dashboard fa-fw"></i> Acompanhamento<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="#">Projetos</a>
+                        <a href="#sprintsView">Sprints</a>
+                    </li>
+                </ul>
+            </li>                
+    
+    
+            <li>
+                <a href="#"><i class="fa fa-plus fa-fw"></i> Cadastro<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="#projeto"><i class="fa fa-plus fa-fw"></i>Projeto</a>                                
+                    </li>
+    
+                    <li>
+                        <a href="#sprint"><i class="fa fa-plus fa-fw"></i>Sprint</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#estoria"><i class="fa fa-plus fa-fw"></i>Estória</a>
+                    </li>
+    
+                    <li>
+                        <a href="#time"><i class="fa fa-plus fa-fw"></i>Time</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#papel"><i class="fa fa-plus fa-fw"></i>Papel</a>
+                    </li>
+    
+                    <li>
+                        <a href="#tipoTarefa"><i class="fa fa-plus fa-fw"></i>Tipo de Tarefa</a>
+                    </li>
+    
+                    <li>
+                        <a href="#tarefa"><i class="fa fa-plus fa-fw"></i>Tarefa</a>
+                    </li>
+                </ul>
+            </li>
+            
+            
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> Configurações<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="#">Segundo Level</a>
+                    </li>
+                    <li>
+                        <a href="#">Segundo Level</a>
+                    </li>                    
+                </ul>                
+            </li>            
+        </ul>        
+    </div>            
+</nav>
+
+		
+        <div id="page-wrapper">
+            <div id="alerts-container"></div>
+            <div ng-view class="col-xs-12" style="margin-top: 2%; margin-left: -2%">
+				<!-- Dentro desta div é apresentado todo conteudo mutável do aplicativo -->
+            </div>           
+           
+        </div>
+
+    </div>
+    <!-- /#wrapper -->
+    <script src="public/js/lib/jquery.min.js"></script>
+    <script src="public/js/lib/jquery.smooth-scroll.min.js"></script>	
+    <script src="public/js/lib/bootstrap.min.js"></script>
+    <script src="public/js/lib/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="public/js/lib/plugins/morris/raphael-2.1.0.min.js"></script>
+    <script src="public/js/lib/plugins/morris/morris.js"></script>
+
+    <script src="public/js/lib/bootswatch.js"></script>
+    <script src="public/js/lib/angular.min.js"></script>
+    <script src="public/js/lib/angular-route.min.js"></script>
+    <script src="public/js/lib/angular-animate.min.js"></script>        
+    <script src="public/js/lib/angular-resource.min.js"></script>     
+    <script src="public/js/lib/plugins/morris/angular-morris-chart.min.js"></script>
+    <script src="public/js/lib/plugins/charts/Chart.min.js"></script>
+    <script src="public/js/lib/plugins/charts/angular-chart.min.js"></script>
+    <script src="public/js/lib/plugins/diretivas/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="public/angular-strap/dist/angular-strap.min.js"></script>
+    <script src="public/angular-strap/dist/angular-strap.tpl.min.js"></script>
+	
+    <!--Controllers-->
+    <script src="controllers/app.js"></script>
+    <script src="controllers/geralController.js"></script>
+    <script src="controllers/restController.js"></script>    
+        
+	<!-- custom -->
+	<script src="public/js/sb-admin.js"></script>
+    <script src="public/js/dashboard-demo.js"></script>
+
+
+</body>
+
+</html>

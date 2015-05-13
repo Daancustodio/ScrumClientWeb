@@ -8,17 +8,17 @@ $app.config(function($routeProvider,$httpProvider){
 
 	//Configura o route provider
 	$routeProvider.
-	when('/',{templateUrl:'view/Home/home.php'}).
-	when('/icones', {templateUrl:'view/icones/icones.php'}).
+	when('/',{templateUrl:'view/acompanhamento/sprint/home.html'}).
+	when('/icones', {templateUrl:'view/icones/icones.html'}).
 	when('/projeto',{templateUrl:'view/projeto/home.html',		Controller:restController}).
-	when('/sprint',{templateUrl:'view/Sprint/home.html',		Controller:restController}).
+	when('/sprint',{templateUrl:'view/sprint/home.html',		Controller:restController}).
 	when('/estoria',{templateUrl:'view/estoria/home.html',		Controller:restController}).
 	when('/time',{templateUrl:'view/time/home.html',				Controller:restController}).
 	when('/papel',{templateUrl:'view/papel/home.html',		Controller:restController}).
 	when('/tipoTarefa',{templateUrl:'view/tipoTarefa/home.html',     Controller:restController}).
 	when('/tarefa',{templateUrl:'view/tarefa/home.html',			Controller:restController}).
-	when('/sprintsView',{templateUrl:'view/Acompanhamento/Sprint/home.html',			Controller:restController}).
-	when('/sprintDetalhes/:id',{templateUrl:'view/Acompanhamento/Sprint/detalhes.html',			Controller:restController}).
+	when('/sprintsView',{templateUrl:'view/acompanhamento/sprint/home.html',			Controller:restController}).
+	when('/sprintDetalhes/:id',{templateUrl:'view/Acompanhamento/sprint/detalhes.html',			Controller:restController}).
 	otherwise({redirectTo:'/'});
 
 	//configura o RESPONSE interceptor, usado para exibir o ícone de acesso ao servidor
