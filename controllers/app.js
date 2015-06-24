@@ -1,5 +1,5 @@
 //URL de acesso ao servidor RESTful
-SERVER_URL = "http://localhost:82/ScrumWebAPI";
+SERVER_URL = "http://scrumwebapi.esy.es";
 
 //Criação ao $app que é o modulo que representa toda a aplicação
 var $app = angular.module('app',['ngRoute','ngAnimate','chart.js','ui.bootstrap','mgcrea.ngStrap']);
@@ -18,7 +18,7 @@ $app.config(function($routeProvider,$httpProvider){
 	when('/tipoTarefa',{templateUrl:'view/tipoTarefa/home.html',     Controller:restController}).
 	when('/tarefa',{templateUrl:'view/tarefa/home.html',			Controller:restController}).
 	when('/sprintsView',{templateUrl:'view/acompanhamento/sprint/home.html',			Controller:restController}).
-	when('/sprintDetalhes/:id',{templateUrl:'view/Acompanhamento/sprint/detalhes.html',			Controller:restController}).
+	when('/sprintDetalhes/:id',{templateUrl:'view/acompanhamento/sprint/detalhes.html',			Controller:restController}).
 	otherwise({redirectTo:'/'});
 
 	//configura o RESPONSE interceptor, usado para exibir o ícone de acesso ao servidor
